@@ -1,0 +1,113 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LoginScreen(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class LoginScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFF219EBC), // Cor de fundo azul
+      body: SafeArea(
+        child: Stack(
+          children: [
+            // Perfil no canto superior direito
+            Positioned(
+              top: 20,
+              right: 20,
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 25,
+                    child: Icon(Icons.person, size: 30, color: Colors.blueGrey),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    'Guilherme',
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+
+            // Conteúdo principal
+            Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    'assets/dev_illustration.png', // Ilustração central
+                    height: 200,
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Login:", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                        TextField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white70,
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text("Senha:", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                        TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white70,
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                foregroundColor: Colors.black,
+                                shape: StadiumBorder(),
+                              ),
+                              child: Text('Entrar'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                foregroundColor: Colors.black,
+                                shape: StadiumBorder(),
+                              ),
+                              child: Text('Sair'),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

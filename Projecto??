@@ -1,0 +1,157 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Login Screen',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const LoginScreen(),
+    );
+  }
+}
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFF2AA1B7),
+      body: Stack(
+        children: [
+          Positioned(
+            bottom: -100,
+            right: -50,
+            child: Container(
+              width: 300,
+              height: 300,
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.2),
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const CircleAvatar(
+                      radius: 40,
+                      backgroundImage: NetworkImage(
+                        "https://www.gstatic.com/flutter-onestack-prototype/genui/example_1.jpg",
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    const Text(
+                      "Guilherme",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    const SizedBox(height: 32),
+                    Image.network(
+                      "https://www.gstatic.com/flutter-onestack-prototype/genui/example_1.jpg",
+                      height: 200,
+                    ),
+                    const SizedBox(height: 32),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 64),
+                      child: Row(
+                        children: [
+                          Image.network(
+                            "https://www.gstatic.com/flutter-onestack-prototype/genui/example_1.jpg",
+                            height: 32,
+                          ),
+                          const SizedBox(width: 8),
+                          const Text(
+                            "Login:",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          const SizedBox(width: 8),
+                          const Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                enabled: false,
+                                filled: true,
+                                fillColor: Color(0xFF9ECEF1),
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 64),
+                      child: Row(
+                        children: [
+                          Image.network(
+                            "https://www.gstatic.com/flutter-onestack-prototype/genui/example_1.jpg",
+                            height: 0,
+                          ),
+                          const SizedBox(width: 8),
+                          const Text(
+                            "Senha:",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          const SizedBox(width: 8),
+                          const Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                enabled: false,
+                                filled: true,
+                                fillColor: Color(0xFF9ECEF1),
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF9ECEF1),
+                            foregroundColor: Colors.black,
+                          ),
+                          onPressed: () {},
+                          child: const Text("Entrar"),
+                        ),
+                        const SizedBox(width: 16),
+                        OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            backgroundColor: const Color(0xFF9ECEF1),
+                          ),
+                          onPressed: () {},
+                          child: const Text("Sair"),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
